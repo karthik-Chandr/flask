@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+{% block insert %}
+
+<form action="/sent" method="POST">
+    <div class="content-section center">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-light"> 
+                <b class="bl-color">Potential Panelists Details:&nbsp;&nbsp;&nbsp;</b><br>
+                <div class="tab">
+                    {% for selected_panelists in selected_panelists %}
+                        <p> <span font-weight: normal; class="bl-color">Name:</span> {{selected_panelists[1]}}   <span font-weight: normal; class="bl-color">&nbsp;&nbsp;&nbsp;&nbsp;Email:</span> {{selected_panelists[2]}}</p>
+                    {% endfor %}
+                </div>
+            </li>
+        </ul>
+        <br>
+        <div class="text-center">
+            <input class="btn btn-outline-dark px-2" type="submit" name="submit" value="Send E-mail" class="btn btn-success">
+        </div>
+        <br>
+
+    </div>
+</form>
+
+{% endblock insert%}

@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+{% block about %}
+
+<div  style="margin-left:200px; margin-right:200px">
+
+      <h2>Overview</h2>
+
+          <p>AWSome Builder Scheduler is a tool that will facilitate the process of selecting or searching for a number of panelists for the AWSome Builder presentation. When there is a need for selecting a number of consultants, AWSome Builder Scheduler helps to schedule a panel for the AWSome Builder 
+              presentation and automatically provides the potential panelist's list based on the ProServe Consultant’s availability and skills. This tool will send an email to the proposed panelists with a link to confirm their availability for the AWSome Builder panel. </p>
+
+          
+    <h2>User Guide</h2>
+    <h3>1. How to create a panel</h3>
+    <img src="{{url_for('static', filename='image3.png')}}" width="750" height="350"/>
+    <p>Step 1: Go to Home page and add the tentative meeting dates, required panelist skills, and the number of panelists required and submit the form.</p>
+    <p>Step 2: Once the required details are submitted, the panel initiator can send an email to each individual separately by clicking ‘Send E-mail’, to confirm their presence in the following AWSome Builder meeting.</p>
+    <br>
+    <h3>2. How to replace a declined panelist</h3>
+    <img src="{{url_for('static', filename='image4.png')}}" width="750" height="350"/>
+    <p>Step 1: Go to ‘Scheduled Meetings’, find the panelist to be replaced and click on ‘Modify’.</p>
+    <br>
+    <img src="{{url_for('static', filename='image5.png')}}" width="750" height="350"/>
+    <p>Step 2: Click on ‘Replace’ to give the confirmation.</p>
+    <br>
+
+    <img src="{{url_for('static', filename='image6.png')}}" width="750" height="350"/>
+    <p>Step 3: Verify the new panelist details and click on ‘Send E-mail’ to complete the process to replace the declined panelist.</p>
+    <br>
+    <br>
+    
+ 
+   
+  
+
+</div>
+
+{% endblock about%}
+

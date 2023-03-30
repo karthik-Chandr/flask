@@ -1,0 +1,71 @@
+{% extends "index.html" %}
+{% block modify %}
+      <style>
+        td {
+               width: 150px;
+               text-align: center;
+               padding: 5px;
+             }
+        tr {
+            text-align: center;
+            }
+       </style>
+       <table class="table table-striped">
+         <thead>
+           <tr>
+               <th>Meeting ID</th>
+               <th>Employee Name</th>
+               <th>Employee email</th>
+               <th>Start Date</th>
+               <th>End Date</th>
+               <th>Panelist Response</th>
+               <th>Action</th>
+           </tr>
+           </thead>    
+           <tbody>
+            {% for row in data %}    
+                   <tr>
+                       <td>{{row[1]}}</td>
+                       <td>{{row[2]}}</td>
+                       <td>{{row[3]}}</td>
+                       <td>{{row[4]}}</td>
+                       <td>{{row[5]}}</td>
+                       <td>{{row[6]}}</td>
+                       {%if row[6]=="decline"%}
+                            <td><a href="" class="" data-toggle="modal" data-target="#modaledit{{row.0}}">Modify</a></td>
+                        {%else%}
+                        <td><a></a></td>
+                        {%endif%}
+                   </tr>
+                     <div id="modaledit{{row.0}}" class="modal fade" role="dialog">
+                        <form action="/update" method="POST">
+                        <div class="modal-dialog">
+                           <div class="modal-content">
+                              <div class="modal-header">
+                                 <h4>Replace Declined Panelist:</h4>
+                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              </div>
+                              <div class="modal-body">
+                                    <input type="hidden"  name="response_id" id="response_id" value="{{row.0}}">
+                                    <div class="form-group">
+                                       <label>Meeting ID:</label>&nbsp;&nbsp;<input name="meeting_id" id="meeting_id" font-weight: normal; class="#686868" value="{{row.1}}">
+                                       </div>
+                                    <div class="form-group">
+                                       <label>Employee Name:</label>&nbsp;&nbsp;<input name="panelist_name" id="panelist_name" font-weight: normal; class="#686868" value="{{row.2}}">
+                                    </div>
+                                    <div class="form-group">
+                                       <label>Employee email:</label>&nbsp;&nbsp;<input name="panelist_email" id="panelist_email" font-weight: normal; class="#686868" value="{{row.3}}">
+                                    </div>
+                                    <div class="form-group text-center">
+                                       <input id="displayText" href="replace.html" class="btn btn-outline-dark px-2" type="submit" name="submit" value="Replace" class="btn btn-success">
+                                    </div>
+                               </div>
+                            </div>
+                         </div>
+                         </form>
+                      </div>
+                   </form>                
+                {% endfor %}
+            </tbody>
+        </table>
+{% endblock modify%}

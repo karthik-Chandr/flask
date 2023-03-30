@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+{% block replace %}
+<form action="/sentreplacedemail" method="POST">
+    <div class="content-section center">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-light"> 
+                <b class="bl-color">Replaced Panelist Details:&nbsp;&nbsp;&nbsp;</b><br>
+                <div class="tab">
+                        <p> <span font-weight: normal; class="bl-color">Name:</span> {{replaced_data[0][1]}}   <span font-weight: normal; class="bl-color">&nbsp;&nbsp;&nbsp;&nbsp;Email:</span> {{replaced_data[0][2]}}</p>
+                </div>
+            </li>
+        </ul>
+        <br>
+        <div class="text-center">
+            <input class="btn btn-outline-dark px-2" type="submit" name="submit" value="Send E-mail" class="btn btn-success">
+        </div>
+        <br>
+
+    </div>
+</form>
+{% endblock replace%}
+
+
+
